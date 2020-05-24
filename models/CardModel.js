@@ -17,6 +17,10 @@ const CardSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    resume: {
+        type: String,
+        required: false,
+    },
     status: {
         type: String,
         required: true,

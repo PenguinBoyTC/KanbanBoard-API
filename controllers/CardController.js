@@ -26,6 +26,7 @@ module.exports = function (app) {
             email: req.body.email,
             status: req.body.status,
             comment: req.body.comment,
+            resume: req.body.resume,
         });
         try {
             const saveCard = await card.save();
@@ -36,8 +37,19 @@ module.exports = function (app) {
     })
     app.delete('/card/:id', async (req, res) => {
         try {
-            const removedCard = await CardModel.remove({_id: req.params.id});
+            const removedCard = await CardModel.deleteOne({_id: req.params.id});
             res.json({removedCard: removedCard});
+        } catch (err) {
+            res.json({message: err});
+        }
+    })
+    app.patch('/card/:id', async (req, res) => {
+        try {
+            const updateCard = await CardModel.updateOne(
+                {_id: req.params.id},
+                {$set: {status: req.body.status,}}
+            );
+            res.json({updateCard: updateCard});
         } catch (err) {
             res.json({message: err});
         }
