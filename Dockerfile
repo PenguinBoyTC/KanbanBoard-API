@@ -3,7 +3,7 @@ FROM node:current-slim
 # Set the working directory to /KanbanBoard-API
 WORKDIR /KanbanBoard-API
 # copy package.json into the container at /KanbanBoard-API
-COPY package*.json /KanbanBoard-API/
+COPY package.json /KanbanBoard-API/
 # install dependencies
 RUN npm install
 # Copy the current directory contents into the container at /KanbanBoard-API
