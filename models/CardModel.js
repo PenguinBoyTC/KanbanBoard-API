@@ -29,7 +29,27 @@ const CardSchema = mongoose.Schema({
         type: String,
         required: false,
     },
-    created_date: {
+    phoneScreenRate: {
+        type: Number,
+        required: false,
+        default: 0,
+    },
+    onsiteRate: {
+        type: Number,
+        required: false,
+        default: 0,
+    },
+    behaviorRate: {
+        type: Number,
+        required: false,
+        default: 0,
+    },
+    averageRate: {
+        type: Number,
+        required: false,
+        default: 0,
+    },
+    createdDate: {
         type: Date,
         default: Date.now()
     }

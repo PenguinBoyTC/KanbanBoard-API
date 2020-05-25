@@ -35,6 +35,36 @@ module.exports = function (app) {
             res.json({message: err})
         }
     })
+
+    app.patch('/card/rates/:id', async (req, res) => {
+        const updateBody = {}
+        if (req.body.phoneScreenRate != undefined) {
+            // console.log('phoneScreenRate', req.body.phoneScreenRate)
+            updateBody.phoneScreenRate = req.body.phoneScreenRate
+        }
+        if (req.body.onsiteRate != undefined) {
+            // console.log('onsiteRate', req.body.onsiteRate)
+            updateBody.onsiteRate = req.body.onsiteRate
+        }
+        if (req.body.behaviorRate != undefined) {
+            // console.log('behaviorRate', req.body.behaviorRate)
+            updateBody.behaviorRate = req.body.behaviorRate
+        }
+        if (req.body.averageRate != undefined) {
+            // console.log('averageRate', req.body.averageRate)
+            updateBody.averageRate = req.body.averageRate
+        }
+        try {
+            const updateCard = await CardModel.updateOne(
+                {_id: req.params.id},
+                {$set: updateBody}
+            );
+            res.json({updateCard: updateCard});
+        } catch (err) {
+            res.json({message: err})
+        }
+    })
+
     app.delete('/card/:id', async (req, res) => {
         try {
             const removedCard = await CardModel.deleteOne({_id: req.params.id});

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const multer = require('multer');
-const uploadFolder = './public/resumes'
+const uploadFolder = './public/assets/uploads/resumes'
 const createFolder = function (folder) {
     try {
         fs.accessSync(folder);
