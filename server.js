@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const userController = require('./controllers/UserController');
 const cardController = require('./controllers/CardController');
 const fileUploadController = require('./controllers/FileUploadController');
 
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Controller
-
+userController(app);
 cardController(app);
 fileUploadController(app);
 
