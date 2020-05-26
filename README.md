@@ -10,3 +10,7 @@
  3.(option) window need to add a .dockerignore file to avoid bcrypt error
  4. docker tag <IMAGE ID> <yourhubusername>/<REPOSITORY>:<tagname>
  5. docker push <yourhubusername>/<REPOSITORY>:<tagname>
+ 
+ API: Express.js
+ Database: MongoDB(Atlas) + mongoose
+ Authorization: bcrypt
