@@ -14,3 +14,4 @@
  API: Express.js
  Database: MongoDB(Atlas) + mongoose
  Authorization: bcrypt
+ File upload: multer
